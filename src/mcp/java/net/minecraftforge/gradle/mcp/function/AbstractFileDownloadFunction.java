@@ -20,6 +20,7 @@
 
 package net.minecraftforge.gradle.mcp.function;
 
+import net.minecraftforge.gradle.common.util.URLReplace;
 import net.minecraftforge.gradle.common.util.Utils;
 import net.minecraftforge.gradle.mcp.util.MCPEnvironment;
 import org.apache.commons.io.FileUtils;
@@ -55,7 +56,7 @@ public abstract class AbstractFileDownloadFunction implements MCPFunction {
         if (info.hash != null && output.exists() && HashUtil.sha1(output).equals(info.hash)) {
             return output; // If the hash matches, don't download again
         }
-        FileUtils.copyURLToFile(new URL(info.url), download);
+        FileUtils.copyURLToFile(new URL(URLReplace.replaceMojang2BMCL(info.url)), download);
 
         if (output != download) {
             if (FileUtils.contentEquals(output, download)) {

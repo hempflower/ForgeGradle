@@ -153,7 +153,7 @@ public class MCPConfigV1 extends Config {
         }
 
         public String getRepo() {
-            return repo == null ? "https://libraries.minecraft.net/" : repo;
+            return repo == null ? "https://bmclapi2.bangbang93.com/libraries/" : repo;
         }
         public void setRepo(String value) {
             this.repo = value;

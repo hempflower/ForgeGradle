@@ -37,7 +37,7 @@ import net.minecraftforge.gradle.common.util.Utils;
 import net.minecraftforge.gradle.common.util.VersionJson;
 
 public class DownloadAssets extends DefaultTask {
-    private static final String RESOURCE_REPO = "http://resources.download.minecraft.net/";
+    private static final String RESOURCE_REPO = "https://bmclapi2.bangbang93.com/assets/";
     private File meta;
 
     @TaskAction

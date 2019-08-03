@@ -38,7 +38,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 public class DownloadMCMeta extends DefaultTask {
-    private static final String MANIFEST_URL = "https://launchermeta.mojang.com/mc/game/version_manifest.json";
+    private static final String MANIFEST_URL = "https://bmclapi2.bangbang93.com/mc/game/version_manifest.json";
     private static final Gson GSON = new GsonBuilder().create();
 
     private String mcVersion;

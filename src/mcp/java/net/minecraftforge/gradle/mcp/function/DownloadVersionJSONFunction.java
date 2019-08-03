@@ -20,6 +20,7 @@
 
 package net.minecraftforge.gradle.mcp.function;
 
+import net.minecraftforge.gradle.common.util.URLReplace;
 import net.minecraftforge.gradle.mcp.util.MCPEnvironment;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -48,7 +49,7 @@ public class DownloadVersionJSONFunction extends AbstractFileDownloadFunction {
             for (JsonElement e : json.getAsJsonArray("versions")) {
                 String v = e.getAsJsonObject().get("id").getAsString();
                 if (v.equals(environment.mcVersion)) {
-                    return new DownloadInfo(e.getAsJsonObject().get("url").getAsString(), null);
+                    return new DownloadInfo(URLReplace.replaceMojang2BMCL(e.getAsJsonObject().get("url").getAsString()), null);
                 }
             }
         } catch (IOException ex) {

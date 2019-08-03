@@ -59,7 +59,7 @@ import net.minecraftforge.gradle.common.util.VersionJson.OS;
 public class MinecraftRepo extends BaseRepo {
     private static MinecraftRepo INSTANCE;
     private static final String GROUP = "net.minecraft";
-    public static final String MANIFEST_URL = "https://launchermeta.mojang.com/mc/game/version_manifest.json";
+    public static final String MANIFEST_URL = "https://bmclapi2.bangbang93.com/mc/game/version_manifest.json";
     public static final String CURRENT_OS = OS.getCurrent().getName();
     private static int CACHE_BUSTER = 1;
 
@@ -170,8 +170,8 @@ public class MinecraftRepo extends BaseRepo {
         URL url =  Utils.loadJson(manifest, ManifestJson.class).getUrl(version);
         if (url == null)
             throw new RuntimeException("Missing version from manifest: " + version);
-
-        if (!Utils.downloadEtag(url, json, offline))
+        //hempflower: replace mojang url
+        if (!Utils.downloadEtag(new URL(URLReplace.replaceMojang2BMCL(url.toString())), json, offline))
             return null;
         Utils.updateHash(json);
         return json;
