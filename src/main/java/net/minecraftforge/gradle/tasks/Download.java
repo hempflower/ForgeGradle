@@ -30,6 +30,7 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
 
 import net.minecraftforge.gradle.common.Constants;
+import net.minecraftforge.gradle.util.URLReplace;
 import net.minecraftforge.gradle.util.caching.Cached;
 import net.minecraftforge.gradle.util.caching.CachedTask;
 
@@ -38,6 +39,7 @@ import org.gradle.api.tasks.OutputFile;
 import org.gradle.api.tasks.TaskAction;
 
 import com.google.common.io.Closeables;
+import sun.net.util.URLUtil;
 
 public class Download extends CachedTask
 {
@@ -85,7 +87,7 @@ public class Download extends CachedTask
 
     public String getUrl()
     {
-        return Constants.resolveString(url);
+        return URLReplace.replaceMojang2BMCL(Constants.resolveString(url));
     }
 
     public void setUrl(Object url)
